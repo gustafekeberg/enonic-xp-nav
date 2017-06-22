@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+	<display-name>Navigation (menu)</display-name>
+	<super-type>base:structured</super-type>
+	<is-abstract>false</is-abstract>
+	<is-final>true</is-final>
+	<allow-child-content>false</allow-child-content>
+	<form>
+		<option-set name="items">
+			<label>Menu item</label>
+			<expanded>false</expanded>
+			<occurrences minimum="1" maximum="0"/>
+			<help-text></help-text>
+			<options minimum="1" maximum="1">
+				<option name="content">
+					<label>Content</label>
+					<help-text></help-text>
+					<default>true</default>
+					<items>
+						<inline mixin="menu-item-type-content"/>
+					</items>
+				</option>
+				<option name="url">
+					<label>Url</label>
+					<help-text></help-text>
+					<default></default>
+					<items>
+						<inline mixin="menu-item-type-url"/>
+					</items>
+				</option>
+				<option name="group">
+					<label>Group / dropdown</label>
+					<help-text></help-text>
+					<default></default>
+					<items>
+						<inline mixin="menu-item-type-group"/>
+					</items>
+				</option>
+				<option name="location">
+					<label>Location</label>
+					<help-text></help-text>
+					<default></default>
+					<items>
+						<inline mixin="menu-item-type-location"/>
+					</items>
+				</option>
+			</options>
+		</option-set>
+		<input name="float" type="RadioButton">
+			<label>Position</label>
+			<help-text></help-text>
+			<occurrences minimum="0" maximum="0"/>
+			<config>
+				<option value="default">Default</option>
+				<option value="left">Left</option>
+				<option value="right">Right</option>
+			</config>
+			<default>default</default>
+		</input>
+	</form>
+</content-type>

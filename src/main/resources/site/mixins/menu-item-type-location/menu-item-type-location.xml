@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mixin>
+	<display-name>Menu item type location</display-name>
+	<items>
+		<input name="location" type="ContentSelector">
+			<label>Location</label>
+			<help-text>Select a location where to search for menu items.</help-text>
+			<occurrences minimum="1" maximum="1"/>
+			<config>
+				<relationshipType>system:reference</relationshipType>
+				<allowContentType></allowContentType>
+				<allowPath>${site}/</allowPath>
+			</config>
+		</input>
+		<input name="depth" type="RadioButton">
+			<label>Depth</label>
+			<help-text></help-text>
+			<occurrences minimum="0" maximum="0"/>
+			<config>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+			</config>
+			<default>1</default>
+		</input>
+	</items>
+</mixin>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mixin>
+	<display-name>Menu item target</display-name>
+	<items>
+		<input name="target" type="RadioButton">
+			<label>Target</label>
+			<help-text></help-text>
+			<occurrences minimum="0" maximum="0"/>
+			<config>
+				<option value="_self">Self window</option>
+				<option value="_blank">Blank window</option>
+			</config>
+			<default>_self</default>
+		</input>
+	</items>
+</mixin>
