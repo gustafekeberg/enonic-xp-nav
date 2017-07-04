@@ -9,7 +9,7 @@
 			<config>
 				<relationshipType>system:reference</relationshipType>
 				<allowContentType></allowContentType>
-				<allowPath>${site}/</allowPath>
+				<allowPath>${site}</allowPath>
 			</config>
 		</input>
 		<input name="title" type="TextLine">
