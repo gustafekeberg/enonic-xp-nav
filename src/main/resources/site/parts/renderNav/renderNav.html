@@ -1,0 +1,31 @@
+<div th:unless="${renderNav}">
+<p>Could not find any NAV!</p>
+</div>
+
+<ul th:if=${renderNav}>
+<li th:each="item : ${renderNav}">
+	<div th:switch="${item.type}">
+
+	<div th:case="'item'">
+		<a th:href="${item.url}"><strong th:remove="none" th:utext="${item.type}" /> - <span th:remove="tag" th:utext="${item.title}" /></a>
+	</div>
+
+	<div th:case="'group'">
+		<a th:href="${item.url}"><strong th:remove="none" th:utext="${item.type}" /> - <span th:remove="tag" th:utext="${item.title}" /></a>
+		<ul>
+			<li th:each="groupItem : ${item.groups}">
+				<div th:switch="${groupItem._selected}">
+				<div th:case="'url'">
+					<a th:href="${groupItem[groupItem._selected].url}" th:target="${(groupItem[groupItem._selected].target == '_self') ? '' : groupItem[groupItem._selected].target }"><span th:remove="tag" th:utext="${groupItem[groupItem._selected].title}" /></a>
+					<code th:utext="${groupItem[groupItem._selected]}" />
+				</div>
+				<div th:case="'divider'">
+					<b>Divider</b>
+				</div>
+			</pre>
+		</ul>
+	</div>
+
+	</div>
+</li>
+</ul>

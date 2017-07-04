@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<part>
+	<display-name>Display navigation</display-name>
+	<config>
+		<field-set name="nav">
+			<label>Display navigation</label>
+			<items>
+				<input name="id" type="ContentSelector">
+					<label>Menu</label>
+					<help-text>Select menu or leave empty to use current content if it is a menu.</help-text>
+					<occurrences minimum="0" maximum="1"/>
+					<config>
+						<relationshipType>system:reference</relationshipType>
+						<allowContentType>nav</allowContentType>
+						<allowPath>${site}/</allowPath>
+				  </config>
+				</input>
+			</items>
+		</field-set>
+	</config>
+</part>
