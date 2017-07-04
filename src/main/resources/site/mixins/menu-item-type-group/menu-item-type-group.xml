@@ -2,41 +2,48 @@
 <mixin>
 	<display-name>Menu item</display-name>
 	<items>
-		<option-set name="option">
-			<label>Item</label>
-			<expanded>false</expanded>
-			<occurrences minimum="1" maximum="0"/>
+		<input name="title" type="TextLine">
+			<label>Dropdown title</label>
+			<help-text>If title is not set this will not render as dropdown.</help-text>
+			<occurrences minimum="0" maximum="1"/>
+			<config>
+				<regexp></regexp>
+			</config>
+			<default></default>
+		</input>
+		<!-- <item-set name="groups">
+			<label>Group</label>
 			<help-text></help-text>
-			<options minimum="1" maximum="1">
-				<option name="content">
-					<label>Content</label>
+			<occurrences minimum="1" maximum="0"/>
+			<items> -->
+				<option-set name="groups">
+					<label>Item</label>
+					<expanded>false</expanded>
+					<occurrences minimum="1" maximum="0"/>
 					<help-text></help-text>
-					<default></default>
-					<items>
-						<inline mixin="menu-item-type-content"/>
-					</items>
-				</option>
-				<option name="url">
-					<label>Url</label>
-					<help-text></help-text>
-					<items>
-						<inline mixin="menu-item-type-url"/>
-					</items>
-				</option>
-				<option name="placeholder">
-					<label>Placeholder</label>
-					<help-text></help-text>
-					<default></default>
-					<items>
-						<inline mixin="menu-item-type-placeholder"/>
-					</items>
-				</option>
-				<option name="divider">
-					<label>Divider</label>
-					<help-text></help-text>
-					<default></default>
-				</option>
-			</options>
-		</option-set>
+					<options minimum="1" maximum="1">
+						<option name="content">
+							<label>Content</label>
+							<help-text></help-text>
+							<default></default>
+							<items>
+								<inline mixin="menu-item-type-content"/>
+							</items>
+						</option>
+						<option name="url">
+							<label>Url</label>
+							<help-text></help-text>
+							<items>
+								<inline mixin="menu-item-type-url"/>
+							</items>
+						</option>
+						<option name="divider">
+							<label>Divider</label>
+							<help-text></help-text>
+						</option>
+					</options>
+				</option-set>
+			<!-- </items>
+		</item-set> -->
 	</items>
 </mixin>
