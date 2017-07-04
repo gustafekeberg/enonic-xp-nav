@@ -4,28 +4,46 @@
 
 <ul th:if=${renderNav}>
 <li th:each="item : ${renderNav}">
-	<div th:switch="${item.type}">
+	<div
+	th:switch="${item.type}"
+	th:remove="tag"
+	>
 
-	<div th:case="'item'">
-		<a th:href="${item.url}"><strong th:remove="none" th:utext="${item.type}" /> - <span th:remove="tag" th:utext="${item.title}" /></a>
+	<div
+	th:case="'item'"
+	th:remove="tag"
+	>
+		<a th:href="${item.url}" th:attr="nav-item-type=${item.type}" th:utext="${item.title}" />
 	</div>
 
-	<div th:case="'group'">
-		<a th:href="${item.url}"><strong th:remove="none" th:utext="${item.type}" /> - <span th:remove="tag" th:utext="${item.title}" /></a>
+	<div
+	th:case="'group'"
+	th:remove="tag"
+	>
+		<a th:href="${item.url}" th:attr="nav-item-type=${item.type}" th:utext="${item.title}" />
 		<ul>
 			<li th:each="groupItem : ${item.groups}">
-				<div th:switch="${groupItem._selected}">
-				<div th:case="'url'">
+				<div
+				th:switch="${groupItem._selected}"
+				th:remove="tag"
+				>
+				<!--/* <div
+				th:case="'url'"
+				th:remove="tag"
+				>
 					<a th:href="${groupItem[groupItem._selected].url}" th:target="${(groupItem[groupItem._selected].target == '_self') ? '' : groupItem[groupItem._selected].target }"><span th:remove="tag" th:utext="${groupItem[groupItem._selected].title}" /></a>
 					<code th:utext="${groupItem[groupItem._selected]}" />
 				</div>
-				<div th:case="'divider'">
+				<div
+				th:case="'divider'"
+				th:remove="tag"
+				>
 					<b>Divider</b>
-				</div>
-			</pre>
+				</div> */-->
+			</div>
+			</li>
 		</ul>
 	</div>
-
 	</div>
 </li>
 </ul>
