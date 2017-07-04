@@ -52,11 +52,11 @@ export abstract class Controller {
     } // constructor
 
     debug() {
-        log.info(`${this.name} ${this.type} config:${JSON.stringify(this.config, null, 4)}`);
-        log.info(`${this.name} ${this.type} model:${JSON.stringify(this.model, null, 4)}`);
         return this; // chainable
     }
     /*
+		log.info(`${this.name} ${this.type} config:${JSON.stringify(this.config, null, 4)}`);
+		log.info(`${this.name} ${this.type} model:${JSON.stringify(this.model, null, 4)}`);
     log.info(`${this.name} ${this.type} controller:${JSON.stringify(this, null, 4)}`); // Everything can be too much :)
     log.info(`${this.name} ${this.type} content:${JSON.stringify(this.content, null, 4)}`);
     log.info(`${this.name} ${this.type} request:${JSON.stringify(this.request, null, 4)}`);
