@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mixin>
+	<display-name>Nav items</display-name>
+	<items>
+		<option-set name="items">
+			<label>Menu item</label>
+			<expanded>false</expanded>
+			<occurrences minimum="1" maximum="0"/>
+			<help-text></help-text>
+			<options minimum="1" maximum="1">
+				<option name="content">
+					<label>Content</label>
+					<help-text></help-text>
+					<default>true</default>
+					<items>
+						<inline mixin="menu-item-type-content"/>
+					</items>
+				</option>
+				<option name="url">
+					<label>Url</label>
+					<help-text></help-text>
+					<default></default>
+					<items>
+						<inline mixin="menu-item-type-url"/>
+					</items>
+				</option>
+				<option name="group">
+					<label>Group / dropdown</label>
+					<help-text></help-text>
+					<default></default>
+					<items>
+						<inline mixin="menu-item-type-group"/>
+					</items>
+				</option>
+				<option name="location">
+					<label>Location</label>
+					<help-text></help-text>
+					<default></default>
+					<items>
+						<inline mixin="menu-item-type-location"/>
+					</items>
+				</option>
+			</options>
+		</option-set>
+	</items>
+</mixin>
