@@ -1,0 +1,24 @@
+<div
+	th:fragment="group"
+	th:remove="tag"
+	>
+	<span th:utext="${item.title}" />
+	<ul>
+		<div
+			th:remove="tag"
+			th:each="groupItem : ${item.groups}"
+			>
+			<li
+			th:class="${'nav nav-' + groupItem.type}"
+			th:switch="${groupItem.type}"
+			>
+			<div
+			th:case="'item'"
+			th:remove="tag"
+			>
+				<div th:replace="NavItems :: item" ></div>
+			</div>
+			</li>
+		</div>
+	</ul>
+</div>

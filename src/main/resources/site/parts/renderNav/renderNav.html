@@ -3,47 +3,26 @@
 </div>
 
 <ul th:if=${renderNav}>
-<li th:each="item : ${renderNav}">
 	<div
-	th:switch="${item.type}"
-	th:remove="tag"
-	>
-
-	<div
-	th:case="'item'"
-	th:remove="tag"
-	>
-		<a th:href="${item.url}" th:attr="nav-item-type=${item.type}" th:utext="${item.title}" />
-	</div>
-
-	<div
-	th:case="'group'"
-	th:remove="tag"
-	>
-		<a th:href="${item.url}" th:attr="nav-item-type=${item.type}" th:utext="${item.title}" />
-		<ul>
-			<li th:each="groupItem : ${item.groups}">
+		th:each="item : ${renderNav}"
+		th:remove="tag"
+		>
+		<li
+			th:class="${'nav nav-' + item.type}"
+			th:switch="${item.type}"
+		>
 				<div
-				th:switch="${groupItem._selected}"
+				th:case="'item'"
 				th:remove="tag"
 				>
-				<!--/* <div
-				th:case="'url'"
-				th:remove="tag"
-				>
-					<a th:href="${groupItem[groupItem._selected].url}" th:target="${(groupItem[groupItem._selected].target == '_self') ? '' : groupItem[groupItem._selected].target }"><span th:remove="tag" th:utext="${groupItem[groupItem._selected].title}" /></a>
-					<code th:utext="${groupItem[groupItem._selected]}" />
+					<div th:replace="NavItems :: navItem (${item})" ></div>
 				</div>
 				<div
-				th:case="'divider'"
+				th:case="'group'"
 				th:remove="tag"
 				>
-					<b>Divider</b>
-				</div> */-->
-			</div>
-			</li>
-		</ul>
+					<div th:replace="NavItems :: groupItem (${item})" ></div>
+				</div>
+		</li>
 	</div>
-	</div>
-</li>
 </ul>

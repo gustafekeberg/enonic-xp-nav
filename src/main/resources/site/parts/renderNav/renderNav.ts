@@ -40,7 +40,7 @@ export default class ExamplePartController extends PartController {
 			let data = navObj.data;
 			let items = new Nav(data.items).parseItems();
 
-			logga(items);
+			// logga(items);
 
 			return items;
 		}
@@ -61,7 +61,7 @@ class Nav {
 	constructor(public itemList) {
 			this.items = itemList;
 	}
-	private content(id: string, target: string = '_self', title: string = '') {
+	private content(id: string, target: string = '_self', title: string = xpGetContent(id).displayName) {
 		if (!id) return;
 		let url = xpUrl(id);
 		return {
@@ -81,13 +81,18 @@ class Nav {
 		}
 	}
 
-	private group(all: any) {
-		all.type = this.itemTypes[1];
-		return all;
+	private group(list: any) {
+		let groupsList = list.groups;
+		let type = this.itemTypes[1];
+		return {
+			title: list.title,
+			type: type,
+			groups: this.parseItems(groupsList)
+		};
 	}
 
-	public parseItems() {
-		let itemList = this.items;
+	public parseItems(itemList: any = this.items) {
+		// let itemList = this.items;
 		let list = [];
 		for (var current of itemList) {
 			let selected: string = current._selected;
@@ -102,6 +107,9 @@ class Nav {
 				break
 				// case 'location':
 				// content = this.location(item.);
+				case 'divider':
+				content = {type: 'divider'};
+				break
 				case 'url':
 				content = this.url(item.url, item.target, item.title);
 				break;
