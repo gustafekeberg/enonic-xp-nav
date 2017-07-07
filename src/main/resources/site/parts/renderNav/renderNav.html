@@ -1,28 +1,15 @@
 <div th:unless="${renderNav}">
-<p>Could not find any NAV!</p>
+	<p>Could not find any NAV!</p>
 </div>
-
 <ul th:if=${renderNav}>
-	<div
-		th:each="item : ${renderNav}"
-		th:remove="tag"
-		>
-		<li
-			th:class="${'nav nav-' + item.type}"
-			th:switch="${item.type}"
-		>
-				<div
-				th:case="'item'"
-				th:remove="tag"
-				>
-					<div th:replace="NavItems :: navItem (${item})" ></div>
-				</div>
-				<div
-				th:case="'group'"
-				th:remove="tag"
-				>
-					<div th:replace="NavItems :: groupItem (${item})" ></div>
-				</div>
+	<div th:each="item : ${renderNav}" th:remove="tag" >
+		<li th:class="${'nav nav-' + item.type}" th:switch="${item.type}" >
+			<div th:case="'item'" th:remove="tag" >
+				<div th:replace="NavItems :: navItem (${item})" ></div>
+			</div>
+			<div th:case="'group'" th:remove="tag" >
+				<div th:replace="NavItems :: groupItem (${item})" ></div>
+			</div>
 		</li>
 	</div>
 </ul>
